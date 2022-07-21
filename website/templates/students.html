@@ -1,0 +1,131 @@
+{% extends "base.html" %} {% block title %}Enroll Student{% endblock %} {% block script %}
+<script src="{{url_for('static', filename='tFees.js')}}"></script>
+{% endblock %} {% block content %}
+
+<div class="container-fluid " style="padding: 15px">
+
+    <div class="jumbotron jumbotron-fluid text-center ">
+        <div class="container">
+            <h3 class="display-5">ATIMPOKU D/A JHS</h3>
+            <h3> FILL THE FORM BELOW TO ENROLL STUDENTS</h3>
+        </div>
+    </div>
+
+    <form method="POST">
+        <div class="row">
+            <div class="col">
+                <label class="mr-sm-2" for="fname">First Name:</label>
+                <input type="text" id="fname" name="fname" class="form-control" required placeholder="First name">
+            </div>
+            <div class="col">
+                <label class="mr-sm-2" for="lname">Last Name:</label>
+                <input type="text" id="lname" name="lname" class="form-control" required placeholder="Last name">
+            </div>
+            <div class="col">
+                <label class="mr-sm-2" for="email">Email:</label>
+                <input type="email" id="email" name="email" class="form-control" placeholder="Email">
+            </div>
+        </div>
+        <p></p>
+        <div class="row">
+            <div class="col">
+                <label class="mr-sm-2" for="dadsname">Name:</label>
+                <input type="text" id="dadsname" name="dadsname" required class="form-control" placeholder="Father's Name">
+            </div>
+            <div class="col">
+                <label class="mr-sm-2" for="dadscontact">Contact:</label>
+                <input type="text" ID="dadscontact" name="dadscontact" required class="form-control" placeholder="Contact">
+            </div>
+            <div class="col">
+                <label class="mr-sm-2" for="dadswork">Occupation:</label>
+                <input type="text" ID="dadswork" name="dadswork" required class="form-control" placeholder="Occupation">
+            </div>
+        </div>
+        <p></p>
+        <div class="row">
+            <div class="col">
+                <label class="mr-sm-2" for="momsname">Name:</label>
+                <input type="text" ID="momsname" name="momsname" required class="form-control" placeholder="Mother's Name">
+            </div>
+            <div class="col">
+                <label class="mr-sm-2" for="momscontact">Contact:</label>
+                <input type="text" id="momscontact" name="momscontact" required class="form-control" placeholder="Mother's Contact">
+            </div>
+            <div class="col">
+                <label class="mr-sm-2" for="momswork">Occupation:</label>
+                <input type="text" id="momswork" name="momswork" required class="form-control" placeholder="Mother's Occupation">
+            </div>
+        </div>
+        <p></p>
+        <div class="row">
+            <div class="col">
+                <label class="mr-sm-2" for="dob">Date of Birth:</label>
+                <input type="date" class="form-control" id="dob" name="dob" required>
+            </div>
+            <div class="col">
+                <label class="mr-sm-2" for="homeaddress">Residence:</label>
+                <input type="text" class="form-control" placeholder="Home Address" name="homeaddress" id="homeaddress">
+            </div>
+
+            <div class="col">
+                <label class="mr-sm-2" for="gender">Gender:</label>
+                <select class="custom-select mr-sm-2" id="gender" name="gender">
+        <option value="Male" selected>Male</option>
+        <option value="Female">Female</option>
+
+      </select>
+            </div>
+        </div>
+
+        <p></p>
+        <div class="row">
+            <div class="col">
+                <label class="mr-sm-2" for="level">Form/Level:</label>
+                <select class="custom-select mr-sm-2" id="level" class="form-control" name="level">
+        <option value="JHS 1" selected>JHS 1</option>
+        <option value="JHS 2">JHS 2</option>
+        <option value="JHS 3">JHS 3</option>
+      </select>
+            </div>
+            <div class="col">
+                <label class="mr-sm-2" for="passport">Admission Fee</label>
+                <input type="text" class="form-control" placeholder="500" name="admfees" id="admfees" onkeyup="feeCal();" required>
+            </div>
+            <div class="col">
+                <label class="mr-sm-2" for="passport">Tuition</label>
+                <input type="text" class="form-control" placeholder="1500" name="fees" id="fees" onkeyup="feeCal();" required>
+            </div>
+            <div class="col">
+                <label class="mr-sm-2" for="passport">Total Charges</label>
+                <input type="text" class="form-control" placeholder="1500" name="Tfees" id="Tfees">
+            </div>
+        </div>
+
+
+
+
+
+        <div class="row" style="padding-top:20px">
+            <div class="col">
+                <button type="Submit" class="btn btn-block btn-outline-info">Enroll Student</button>
+            </div>
+
+            <div class="col">
+                <button type="button" class="btn btn-block btn-outline-warning">
+                    <a class="nav-item nav-link" id="studentreport" href="/studentreport">View Student Records</a>
+                  </button>
+            </div>
+
+            <div class="col">
+                <button type="button" class="btn btn-block btn-outline-danger">Clear Fields</button>
+            </div>
+
+        </div>
+
+
+    </form>
+
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,256 @@
+{% extends "base.html" %} {% block title %}Enroll Staff{% endblock %} {% block content %}
+
+<div class="container-fluid " style="padding: 15px">
+
+    <div class="jumbotron jumbotron-fluid text-center ">
+        <div class="container">
+            <h3 class="display-5">ATIMPOKU D/A JHS</h3>
+            <h3> FILL THE FORM BELOW TO ADD A NEW STAFF</h3>
+        </div>
+    </div>
+
+    <form method="POST">
+        <div class="row">
+            <div class="col">
+                <label class="mr-sm-2" for="fname">First Name:</label>
+                <input type="text" id="fname" name="fname" class="form-control" required placeholder="First name">
+            </div>
+            <div class="col">
+                <label class="mr-sm-2" for="lname">Last Name:</label>
+                <input type="text" id="lname" name="lname" class="form-control" required placeholder="Last name">
+            </div>
+            <div class="col">
+                <label class="mr-sm-2" for="email">Email:</label>
+                <input type="email" id="email" name="email" class="form-control" required placeholder="Email">
+            </div>
+        </div>
+        <p></p>
+        <div class="row">
+            <div class="col">
+                <label class="mr-sm-2" for="dadsname">Father's Name:</label>
+                <input type="text" id="dadsname" name="dadsname" class="form-control" required placeholder="Father's Name">
+            </div>
+            <div class="col">
+                <label class="mr-sm-2" for="dadscontact">Father's Contact:</label>
+                <input type="text" ID="dadscontact" name="dadscontact" class="form-control" required placeholder="Contact">
+            </div>
+            <div class="col">
+                <label class="mr-sm-2" for="dadswork">Father's Occupation:</label>
+                <input type="text" ID="dadswork" name="dadswork" class="form-control" required placeholder="Occupation">
+            </div>
+        </div>
+        <p></p>
+        <div class="row">
+            <div class="col">
+                <label class="mr-sm-2" for="momsname">Mother's Name:</label>
+                <input type="text" ID="momsname" name="momsname" class="form-control" required placeholder="Mother's Name">
+            </div>
+            <div class="col">
+                <label class="mr-sm-2" for="momscontact">Mother's Contact:</label>
+                <input type="text" id="momscontact" name="momscontact" class="form-control" required placeholder="Mother's Contact">
+            </div>
+            <div class="col">
+                <label class="mr-sm-2" for="momswork">Mother's Occupation:</label>
+                <input type="text" id="momswork" name="momswork" class="form-control" required placeholder="Mother's Occupation">
+            </div>
+        </div>
+        <p></p>
+        <div class="row">
+            <div class="col">
+                <label class="mr-sm-2" for="dob">Date of Birth:</label>
+                <input type="date" class="form-control" id="dob" required name="dob">
+            </div>
+            <div class="col">
+                <label class="mr-sm-2" for="homeaddress">Residence:</label>
+                <input type="text" class="form-control" placeholder="Home Address" required name="homeaddress" id="homeaddress">
+            </div>
+
+            <div class="col">
+                <label class="mr-sm-2" for="gender">Gender:</label>
+                <select class="custom-select mr-sm-2" id="gender" required name="gender">
+        <option value="Male" selected>Male</option>
+        <option value="Female">Female</option>
+
+      </select>
+            </div>
+        </div>
+
+        <p></p>
+        <div class="row">
+            <div class="col">
+                <label class="mr-sm-2" for="jhs">Form/Level:</label>
+                <select class="custom-select mr-sm-2" id="jhs" name="jhs" class="form-control" required>
+        <option value="JHS 1" selected>JHS 1</option>
+        <option value="JHS 2">JHS 2</option>
+        <option value="JHS 3">JHS 3</option>
+        <option value="JHS 1 & 2">JHS 1 & 2</option>
+        <option value="JHS 1 & 3">JHS 1 & 3</option>
+        <option value="JHS 2 & 3">JHS 2 & 3</option>
+        <option value="JHS 1, 2 & 3">All</option>
+      </select>
+            </div>
+            <div class="col">
+                <label class="mr-sm-2" for="marital">Marital Status:</label>
+                <select class="custom-select mr-sm-2" id="marital" name="marital" class="form-control" required>
+        <option value="Single" selected>Single</option>
+        <option value="Married">Married</option>
+        <option value="Widowed">Widowed</option>
+        <option value="Divorced">Divorced</option>
+      </select>
+            </div>
+            <div class="col">
+                <label class="mr-sm-2" for="passport">Upload Passport Size Image:</label>
+                <input type="file" class="form-control" id="passport" name="passport" accept="image/*">
+            </div>
+        </div>
+
+
+
+        <p></p>
+        <div class="row">
+            <div class="col">
+                <label class="mr-sm-2" for="bank">Bank Name:</label>
+                <input type="text" class="form-control" id="bank" name="bank" required name="bank">
+            </div>
+            <div class="col">
+                <label class="mr-sm-2" for="accountnumber">Account Number:</label>
+                <input type="text" class="form-control" id="accountnumber" name="accountnumber" required>
+            </div>
+            <div class="col">
+                <label class="mr-sm-2" for="accountname">Name on Bank Account:</label>
+                <input type="text" class="form-control" id="accountname" required name="accountname">
+            </div>
+        </div>
+
+
+
+        <p></p>
+        <div class="row">
+            <div class="col">
+                <label class="mr-sm-2" for="momo">Name on Momo:</label>
+                <input type="text" class="form-control" id="momo" name="momo" required>
+            </div>
+            <div class="col">
+                <label class="mr-sm-2" for="network">Network:</label>
+                <select class="custom-select mr-sm-2" id="network" class="form-control" name="network" required>
+        <option value="MTN" selected>MTN</option>
+        <option value="AirtelTigo">AirtelTigo</option>
+        <option value="Vodafone">Vodafone</option>
+        <option value="Other">Other</option>
+      </select>
+
+            </div>
+            <div class="col">
+                <label class="mr-sm-2" for="nameonmomo">Name on Momo Account:</label>
+                <input type="text" class="form-control" id="nameonmomo" name="nameonmomo" required>
+            </div>
+        </div>
+
+        <hr>
+        <!--
+
+        <table class="table table-responsive " style="padding-top: 20px;">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Role</th>
+                    <th>Option</th>
+                    <th>Option</th>
+                    <th>Option</th>
+                    <th>Option</th>
+                    <th>Option</th>
+                    <th>Option</th>
+                    <th>Option</th>
+                    <th>Option</th>
+                    <th>Option</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">1</th>
+                    <td>Class Teacher</td>
+
+                    <td><input class="form-check-input" type="checkbox" class="form-control" value="JHS 1" id="jhs1chk" name="jhs1chk">
+                        <label class="form-check-label" for="jhs1chk">
+            JHS 1
+          </label></td>
+
+                    <td><input class="form-check-input" type="checkbox" class="form-control" value="JHS 2" id="jhs2chk" name="jhs2chk">
+                        <label class="form-check-label" for="jhs2chk">
+            JHS 2
+          </label></td>
+
+                    <td><input class="form-check-input" type="checkbox" class="form-control" value="JHS 3" id="jhs3chk" name="jhs3chk">
+                        <label class="form-check-label" for="jhs3chk">
+            JHS 3
+          </label></td>
+
+                </tr>
+                <tr>
+                    <th scope="row">2</th>
+                    <td>Subject Teacher</td>
+                    <td><input class="form-check-input" type="checkbox" class="form-control" value="Mathematics" id="Maths" name="Maths">
+                        <label class="form-check-label" for="Maths">
+            Mathematics
+          </label></td>
+                    <td><input class="form-check-input" type="checkbox" class="form-control" value="Science" id="Science" name="Science">
+                        <label class="form-check-label" for="Science">
+            Science
+          </label></td>
+                    <td><input class="form-check-input" type="checkbox" class="form-control" value="English" id="English" name="English">
+                        <label class="form-check-label" for="English">
+            English
+          </label></td>
+                    <td><input class="form-check-input" type="checkbox" class="form-control" value="" id="Social" name="Social">
+                        <label class="form-check-label" for="Social">
+            Social
+          </label></td>
+                    <td><input class="form-check-input" type="checkbox" class="form-control" value="ICT" id="RME" name="RME">
+                        <label class="form-check-label" for="RME">
+            RME
+          </label></td>
+                    <td><input class="form-check-input" type="checkbox" class="form-control" value="" id="ICT" name="ICT">
+                        <label class="form-check-label" for="ICT">
+            ICT
+          </label></td>
+                    <td><input class="form-check-input" type="checkbox" class="form-control" value="BDT" id="BDT" name="BDT">
+                        <label class="form-check-label" for="BDT">
+            BDT
+          </label></td>
+                    <td><input class="form-check-input" type="checkbox" class="form-control" value="French" id="French" name="French">
+                        <label class="form-check-label" for="French">
+            French
+          </label></td>
+                    <td><input class="form-check-input" type="checkbox" class="form-control" value="Ghanaian Language" id="Ghlang" name="Ghlang">
+                        <label class="form-check-label" for="Ghlang">
+            Ghanaian Language
+          </label></td>
+
+                </tr>
+            </tbody>
+        </table>-->
+        <div class="row" style="border-style: none;">
+            <div class="col">
+                <button type="Submit" class="btn btn-block btn-outline-info">Enroll Staff</button>
+            </div>
+
+            <div class="col">
+                <button type="button" class="btn btn-block btn-outline-warning">
+              <a class="nav-item nav-link" id="studentreport" href="/staffreport">View Staff Records</a>
+            </button>
+            </div>
+
+            <div class="col">
+                <button type="button" class="btn btn-block btn-outline-danger">Clear Fields</button>
+            </div>
+
+        </div>
+
+
+    </form>
+
+</div>
+
+
+{% endblock %}

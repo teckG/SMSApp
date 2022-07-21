@@ -1,0 +1,51 @@
+{% extends "base.html" %} {% block title %}Sign Up{% endblock %} {% block content %}
+
+<div class="jumbotron jumbotron-fluid text-center ">
+    <div class="container">
+        <h3 class="display-5">ATIMPOKU JHS</h3>
+        <h3> SIGN-UP</h3>
+    </div>
+</div>
+
+<form method="POST">
+
+    <div class="row">
+        <div class="col">
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" class="form-control" id="email" name="email" placeholder="Enter email" />
+            </div>
+        </div>
+        <div class="col">
+            <div class="form-group">
+                <label for="firstName">User Name</label>
+                <input type="text" class="form-control" id="firstName" name="firstName" placeholder="Enter user name" />
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <div class="row">
+        <div class="col">
+            <div class="form-group">
+                <label for="password1">Password</label>
+                <input type="password" class="form-control" id="password1" name="password1" placeholder="Enter password" />
+            </div>
+        </div>
+
+
+        <div class="col">
+            <div class="form-group">
+                <label for="password2">Password (Confirm)</label>
+                <input type="password" class="form-control" id="password2" name="password2" placeholder="Confirm password" />
+            </div>
+        </div>
+    </div>
+
+    <br />
+    <button type="submit" class="btn btn-block btn-outline-primary">Sign Up</button>
+
+</form>
+{% endblock %}

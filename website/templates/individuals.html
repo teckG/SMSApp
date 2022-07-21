@@ -1,0 +1,54 @@
+{% extends "base.html" %} {% block title %}Event{% endblock %} {% block content %}
+
+
+
+
+<div class="jumbotron h-100 ">
+    <div class="card">
+
+        <div class="card-body">
+            <h5 class="card-title text-center">SELECT STUDENT NAME & TERM OF ASSESSMENTS TO GENERATE REPORT</h5>
+        </div>
+    </div>
+    <p class="lead">
+        <form action="/viewdata" method="POST">
+
+
+            <table class="table table-sm">
+                <thead>
+                    <tr>
+                        <th>Select name below to generate a report.</th>
+                        <th>Click to Generate Report</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+
+                        <td>
+
+
+                            <select class="custom-select" name="studentID">
+                                {% for data in dataset %}
+                              <option value="{{data.id}}">{{data.id}} - {{data.name}} [{{data.term}}] </option>
+                              {% endfor%}
+                        </select></td>
+
+                        <td>
+                            <input class="btn btn-block btn-outline-primary" type="submit" value="Generate Report">
+                        </td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </form>
+    </p>
+    <hr class="my-2">
+    <p></p>
+    <p class="lead">
+    </p>
+
+
+
+</div>
+
+{% endblock %}

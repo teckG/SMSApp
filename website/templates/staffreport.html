@@ -1,0 +1,47 @@
+{% extends "base.html" %} {% block title %}Staff Report{% endblock %} {% block content %}
+
+
+
+
+<table class="table  table-responsive table-bordered">
+    <thead class="thead-dark">
+        <tr>
+            <th>ID</th>
+            <th>First</th>
+            <th>Last</th>
+            <th>Email</th>
+            <th>DOB</th>
+            <th>Address</th>
+            <th>Gender</th>
+            <th>Class</th>
+            <th>Marital</th>
+            <th>Bank</th>
+            <th>Acc No.</th>
+            <th>Momo</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for data in dataset %}
+        <tr>
+            <th scope="row">{{data.id}}</th>
+            <td>{{data.first_name}}</td>
+            <td>{{data.last_name}}</td>
+            <td>{{data.email}}</td>
+            <td>{{data.dob}}</td>
+            <td>{{data.addr}}</td>
+            <td>{{data.gender}}</td>
+            <td>{{data.forms}}</td>
+            <td>{{data.maritalstate}}</td>
+            <td>{{data.bankname}}</td>
+            <td>{{data.accountnum}}</td>
+            <td>{{data.momonum}}</td>
+
+
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+
+
+{% endblock %}

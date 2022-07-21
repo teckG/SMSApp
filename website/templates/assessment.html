@@ -1,0 +1,127 @@
+{% extends "base.html" %} {% block title %}Assessment{% endblock %} {% block content %}
+
+<div class="card text-center">
+    <div class="card-body">
+        <h4 class="card-title">ALL STUDENTS ASSESSMENT REPORT </h4>
+        <h5><span class="badge badge-primary">Class Score (CS)</span>
+            <span class="badge badge-secondary">Exams Score (ES)</span>
+            <span class="badge badge-warning">Total Score (TS)</span>
+            <span class="badge badge-info">Grade (GR)</span>
+        </h5>
+
+        <form action="/viewdata" method="POST">
+
+
+
+            <table class="table table-responsive ">
+                <thead>
+
+                    <tr>
+                        <th>#</th>
+                        <th>Name</th>
+                        <th>Form</th>
+                        <th>Term</th>
+                        <th>English CS</th>
+                        <th>English ES</th>
+                        <th>English TS</th>
+                        <th>English GR</th>
+                        <th>Maths CS</th>
+                        <th>Maths ES</th>
+                        <th>Maths TS</th>
+                        <th>Maths GR</th>
+                        <th>Science CS</th>
+                        <th>Science ES</th>
+                        <th>Science TS</th>
+                        <th>Science GR</th>
+                        <th>Social CS</th>
+                        <th>Social ES</th>
+                        <th>Social TS</th>
+                        <th>Social GR</th>
+                        <th>RME CS</th>
+                        <th>RME ES</th>
+                        <th>RME TS</th>
+                        <th>RME GR</th>
+                        <th>BDT CS</th>
+                        <th>BDT ES</th>
+                        <th>BDT TS</th>
+                        <th>BDT GR</th>
+                        <th>ICT CS</th>
+                        <th>ICT ES</th>
+                        <th>ICT TS</th>
+                        <th>ICT GR</th>
+                        <th>Ghlang CS</th>
+                        <th>Ghlang ES</th>
+                        <th>Ghlang TS</th>
+                        <th>Ghlang GR</th>
+                        <th>French CS</th>
+                        <th>French ES</th>
+                        <th>French TS</th>
+                        <th>French GR</th>
+                        <th>Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for data in dataset %}
+                    <tr>
+                        <th scope="row"> <button type="submit" class="btn" name="studentID" value="{{data.id}}">{{data.id}}</button></th>
+                        <td>
+                            <button type="submit" class="btn  btn-link" name="studentID" value="{{data.id}}">{{data.name}}</button><input class="btn btn-sm btn-outline-primary" type="submit" value="hide" hidden>
+                        </td>
+                        <td>{{data.form}}</td>
+                        <td>{{data.term}}</td>
+                        <td>{{data.engcl}}</td>
+                        <td>{{data.engex}}</td>
+                        <td>{{data.engtot}}</td>
+                        <td>{{data.enggr}}</td>
+                        <td>{{data.mathcl}}</td>
+                        <td>{{data.mathex}}</td>
+                        <td>{{data.mathtot}}</td>
+                        <td>{{data.mathgr}}</td>
+                        <td>{{data.scicl}}</td>
+                        <td>{{data.sciex}}</td>
+                        <td>{{data.scitot}}</td>
+                        <td>{{data.scigr}}</td>
+                        <td>{{data.soccl}}</td>
+                        <td>{{data.socex}}</td>
+                        <td>{{data.soctot}}</td>
+                        <td>{{data.socgr}}</td>
+                        <td>{{data.rmecl}}</td>
+                        <td>{{data.rmeex}}</td>
+                        <td>{{data.rmetot}}</td>
+                        <td>{{data.rmegr}}</td>
+                        <td>{{data.bdtcl}}</td>
+                        <td>{{data.bdtex}}</td>
+                        <td>{{data.bdttot}}</td>
+                        <td>{{data.bdtgr}}</td>
+                        <td>{{data.ictcl}}</td>
+                        <td>{{data.ictex}}</td>
+                        <td>{{data.icttot}}</td>
+                        <td>{{data.ictgr}}</td>
+                        <td>{{data.ghlangcl}}</td>
+                        <td>{{data.ghlangex}}</td>
+                        <td>{{data.ghlangtot}}</td>
+                        <td>{{data.ghlanggr}}</td>
+                        <td>{{data.frcl}}</td>
+                        <td>{{data.frex}}</td>
+                        <td>{{data.frtot}}</td>
+                        <td>{{data.frgr}}</td>
+                        <td>{{data.date}}</td>
+
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+
+    </div>
+</div>
+</form>
+<!--
+{% for data in dataset %}
+<div class="d-flex flex-lg-column">
+    {{data.name}}
+</div>
+{% endfor %}
+
+
+-->
+{% endblock %}

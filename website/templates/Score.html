@@ -1,0 +1,214 @@
+{% extends "base.html" %} {% block title %} Assessment {% endblock %} {% block script %}
+<script src="{{url_for('static', filename='score.js')}}"></script>
+{% endblock %} {% block content %}
+
+
+
+<form method="POST">
+
+
+    <table class="table table-bordered">
+        <thead class="thead-dark">
+            <tr>
+                <th>Refresh</th>
+                <th>Full Name</th>
+                <th>Form</th>
+                <th>Term</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <a class="nav-item nav-link" id="score" href="/score">
+                        <button type="button" class="btn btn-outline-secondary btn-block btn-sm">
+                                            Refresh Data</button></a>
+                </td>
+                <td> <select class="custom-select" name="studentname" id="studentname">
+                    {% for data in dataset %}
+                  <option selected="">{{data.last_name}} {{data.first_name}}</option>
+                  {% endfor %}
+                </select></td>
+                <td><select class="custom-select mr-sm-2" id="form" name="form">
+        <option value="JHS 1" selected>JHS 1</option>
+        <option value="JHS 2">JHS 2</option>
+        <option value="JHS 3">JHS 3</option>
+      </select></td>
+                <td><select class="custom-select mr-sm-2" id="term" name="term">
+        <option value="Term 1" selected>Term 1</option>
+        <option value="Term 2">Term 2</option>
+        <option value="Term 3">Term 3</option>
+      </select></td>
+
+            </tr>
+
+        </tbody>
+    </table>
+
+
+    <table class="table table-bordered">
+
+        <thead class="thead-dark">
+            <tr>
+                <th>Subjects</th>
+                <th>Classwork</th>
+                <th>Classwork (50%) </th>
+                <th>Exams</th>
+                <th>Exams (50%)</th>
+                <th>Total (100%)</th>
+                <th>Grade (1-9)</th>
+                <th>Remark</th>
+            </tr>
+        </thead>
+
+        <tbody>
+
+            <tr>
+                <th scope="row">English</th>
+                <td><input type="text" id="clswkeng" name="clswkeng" class="form-control" onkeyup="half(this.value); add();" required></td>
+                <td><input type="text" id="clswkeng50" name="clswkeng50" class="form-control" readonly></td>
+                <td><input type="text" id="exameng" name="exameng" class="form-control" onkeyup="half1(this.value); add();" required></td>
+                <td><input type="text" id="exameng50" name="exameng50" class="form-control" readonly></td>
+                <td><input type="text" id="toteng" name="toteng" class="form-control" readonly></td>
+                <td><input type="text" id="eng_grade" name="eng_grade" class="form-control" readonly></td>
+                <td><em> <span id="indicate" class="badge text-center"></span></em></td>
+            </tr>
+
+
+            <tr>
+                <th scope="row">Mathematics</th>
+                <td><input type="text" id="clswkmath" name="clswkmath" class="form-control" onkeyup="maths(this.value); addMaths()" required></td>
+                <td><input type="text" id="clswkmath50" name="clswkmath50" class="form-control" readonly></td>
+                <td><input type="text" id="exammath" name="exammath" class="form-control" onkeyup="mathExams(this.value); addMaths()" required></td>
+                <td><input type="text" id="exammath50" name="exammath50" class="form-control" readonly></td>
+                <td><input type="text" id="mathtot" name="mathtot" class="form-control" readonly></td>
+                <td><input type="text" id="math_grade" name="math_grade" class="form-control" readonly></td>
+                <td><em> <span id="indicatemath" class="badge text-center"></span></em></td>
+
+            </tr>
+
+
+            <tr>
+                <th scope="row">Science</th>
+                <td><input type="text" id="clswksc" name="clswksc" class="form-control" onkeyup="scienceClass(this.value); addScience();" required></td>
+                <td><input type="text" id="clswksc50" name="clswksc50" class="form-control" readonly></td>
+                <td><input type="text" id="examsc" name="examsc" class="form-control" onkeyup="scienceExams(this.value); addScience();" required></td>
+                <td><input type="text" id="examsc50" name="examsc50" class="form-control" readonly></td>
+                <td><input type="text" id="totsc" name="totsc" class="form-control" readonly></td>
+                <td><input type="text" id="sc_grade" name="sc_grade" class="form-control" readonly></td>
+                <td><em> <span id="indicateScience" class="badge text-center"></span></em></td>
+
+            </tr>
+
+            <tr>
+                <th scope="row">Social</th>
+                <td><input type="text" id="socwkeng" name="socwkeng" class="form-control" onkeyup="socialClass(this.value); addSocial();" required></td>
+                <td><input type="text" id="clswksoc50" name="clswksoc50" class="form-control" readonly></td>
+                <td><input type="text" id="examsoc" name="examsoc" class="form-control" onkeyup="socialExams(this.value); addSocial();" required></td>
+                <td><input type="text" id="examsoc50" name="examsoc50" class="form-control" readonly></td>
+                <td><input type="text" id="totsoc" name="totsoc" class="form-control" readonly></td>
+                <td><input type="text" id="soc_grade" name="soc_grade" class="form-control" readonly></td>
+                <td><em> <span id="indicateSoc" class="badge text-center"></span></em></td>
+
+            </tr>
+
+
+            <tr>
+                <th scope="row">RME</th>
+                <td><input type="text" id="clswkrme" name="clswkrme" class="form-control" onkeyup="rmeClass(this.value); addRme();" required></td>
+                <td><input type="text" id="clswkrme50" name="clswkrme50" class="form-control" readonly></td>
+                <td><input type="text" id="examrme" name="examrme" class="form-control" onkeyup="rmeExams(this.value); addRme();" required></td>
+                <td><input type="text" id="examrme50" name="examrme50" class="form-control" readonly></td>
+                <td><input type="text" id="totrme" name="totrme" class="form-control" readonly></td>
+                <td><input type="text" id="rme_grade" name="rme_grade" class="form-control" readonly></td>
+                <td><em> <span id="indicateRme" class="badge text-center"></span></em></td>
+
+            </tr>
+
+
+            <tr>
+                <th scope="row">BDT</th>
+                <td><input type="text" id="clswkbdt" name="clswkbdt" class="form-control" onkeyup="bdtClass(this.value); addBdt();" required></td>
+                <td><input type="text" id="clswkdbt50" name="clswkbdt50" class="form-control" readonly></td>
+                <td><input type="text" id="exambdt" name="exambdt" class="form-control" onkeyup="bdtExams(this.value); addBdt();" required></td>
+                <td><input type="text" id="exambdt50" name="exambdt50" class="form-control" readonly></td>
+                <td><input type="text" id="totbdt" name="totbdt" class="form-control" readonly></td>
+                <td><input type="text" id="bdt_grade" name="bdt_grade" class="form-control" readonly></td>
+                <td><em> <span id="indicatebdt" class="badge text-center"></span></em></td>
+
+            </tr>
+
+            <tr>
+                <th scope="row">ICT</th>
+                <td><input type="text" id="clswkict" name="clswkict" class="form-control" onkeyup="ictClass(this.value); addIct();" required></td>
+                <td><input type="text" id="clswkict50" name="clswkict50" class="form-control" readonly></td>
+                <td><input type="text" id="examict" name="examict" class="form-control" onkeyup="ictExams(this.value); addIct();" required></td>
+                <td><input type="text" id="examict50" name="examict50" class="form-control" readonly></td>
+                <td><input type="text" id="totict" name="totict" class="form-control" readonly></td>
+                <td><input type="text" id="ict_grade" name="ict_grade" class="form-control" readonly></td>
+                <td><em> <span id="indicateIct" class="badge text-center"></span></em></td>
+
+            </tr>
+
+            <tr>
+                <th scope="row">Ghanaian Language</th>
+                <td><input type="text" id="clswkghlang" name="clswkghlang" class="form-control" onkeyup="ghlClass(this.value); addGhl();" required></td>
+                <td><input type="text" id="clswkghlang50" name="clswkghlang50" class="form-control" readonly></td>
+                <td><input type="text" id="examghlang" name="examghlang" class="form-control" onkeyup="ghlExams(this.value); addGhl();" required></td>
+                <td><input type="text" id="examghlang50" name="examghlang50" class="form-control" readonly></td>
+                <td><input type="text" id="totghlang" name="totghlang" class="form-control" readonly></td>
+                <td><input type="text" id="ghlang_grade" name="ghlang_grade" class="form-control" readonly></td>
+                <td><em> <span id="indicateGhl" class="badge text-center"></span></em></td>
+
+            </tr>
+
+            <tr>
+                <th scope="row">French</th>
+                <td><input type="text" id="clswkfr" name="clswkfr" class="form-control" onkeyup="frClass(this.value); addFr();" required></td>
+                <td><input type="text" id="clswkfr50" name="clswkfr50" class="form-control" readonly></td>
+                <td><input type="text" id="examfr" name="examfr" class="form-control" onkeyup="frExams(this.value); addFr();" required></td>
+                <td><input type="text" id="examfr50" name="examfr50" class="form-control" readonly></td>
+                <td><input type="text" id="totfr" name="totfr" class="form-control" readonly></td>
+                <td><input type="text" id="fr_grade" name="fr_grade" class="form-control" readonly></td>
+                <td><em> <span id="indicatefr" class="badge text-center"></span></em></td>
+
+            </tr>
+
+
+
+        </tbody>
+
+
+    </table>
+
+    <table class="table table-bordered">
+
+        <tr>
+            <td>
+                <button type="submit" class="btn btn-block btn-outline-secondary">Save Records</button>
+            </td>
+            <td>
+                <div class="col">
+                    <a class="nav-item nav-link" id="event" href="/assessment">
+                        <button type="button" class="btn btn-primary btn-block ">View Records
+                            </button></a>
+                </div>
+            </td>
+            <td>
+                <button type="button" class="btn btn-block btn-outline-danger">Clear Fields</button>
+            </td>
+        </tr>
+
+        <tbody>
+
+            <tr>
+
+
+            </tr>
+
+        </tbody>
+
+    </table>
+
+</form>
+
+{% endblock %}

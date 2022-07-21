@@ -1,0 +1,184 @@
+{% extends "base.html" %} {% block title %}Billings{% endblock %} {% block script %}
+<script src="{{url_for('static', filename='bills.js')}}"></script>
+{% endblock %} {% block content %}
+
+
+<div class="jumbotron">
+    <h2 class="display-3">Welcome {{user.first_name}} to the fee payment portal</h2>
+    <p class="lead">This is our strenght</p>
+    <hr class="my-2">
+    <p>Click below to make payment.</p>
+    <p class="lead">
+        <button class="btn btn-lg btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">
+            Check Fee Balance
+          </button>
+        <button class="btn btn-lg btn-primary" data-toggle="modal" data-target=".makepayment">
+                Make Payment
+              </button>
+        <button class="btn btn-sm btn-outline-warning btn-link"><a class="nav-item nav-link" style="color:black;" id="score" href="/billings">
+            
+                    Refresh Page</a>
+            </button>
+
+    </p>
+</div>
+
+
+
+<!-- Fees modal -->
+
+
+<div class="modal fade bd-example-modal-lg " tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-scrollable">
+
+        <div class="modal-content text-center">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalCenteredLabel">Check Fee Balance</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                  <span aria-hidden="true">&times;</span>
+                                </button>
+            </div>
+            <form action="/fees" method="POST" style="padding:60px;">
+
+
+
+                <table class="table table-responsive table-borderless">
+                    <thead>
+
+                        <tr>
+                            <th>#</th>
+                            <th>Name</th>
+                            <th>Form</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for data in dataset %}
+                        <tr>
+                            <th scope="row"> <button type="submit" class="btn" name="studentID" value="{{data.id}}">{{data.id}}</button></th>
+                            <td>
+                                <button type="submit" class="btn  btn-link " name="studentID" value="{{data.id}}">{{data.last_name}} {{data.first_name}}</button>
+                            </td>
+                            <td>{{data.forms}}</td>
+
+
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </form>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<div class="modal fade makepayment " tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-scrollable">
+
+        <div class="modal-content text-center">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalCenteredLabel">Pay Fees</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                      <span aria-hidden="true">&times;</span>
+                                    </button>
+            </div>
+            <form method="POST" style="padding:60px;">
+
+
+                <div class="form-group row">
+                    <label for="studentID" class="col-sm-2 col-form-label">Student ID*</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" required name="studentID" id="studentID" placeholder="1">
+                    </div>
+
+                </div>
+                <div class="form-group row">
+                    <label for="studentName" class="col-sm-2 col-form-label">Name of Payee:</label>
+                    <div class="col-sm-10">
+                        <input type="text" name="studentName" required class="form-control" id="studentName" placeholder="Paul Doe">
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="studentForm" class="col-sm-2 col-form-label">Form</label>
+                    <div class="col-sm-10">
+                        <select class="form-control" name="studentForm" id="studentForm">
+                            <option value="JHS 1">JHS 1</option>
+                            <option value="JHS 2">JHS 2</option>
+                            <option value="JHS 3">JHS 3</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="feeAmount" required class="col-sm-2 col-form-label">Amount</label>
+                    <div class="col-sm-10">
+                        <input type="text" name="feeAmount" class="form-control" id="feeAmount" placeholder="350">
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-sm-8">
+                        <button type="submit" class="btn btn-outline-primary btn-lg">Make Payment Now</button>
+                    </div>
+
+                </div>
+
+
+
+            </form>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+<!--
+<script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+
+<script type="text/javascript">
+    jQuery(document).ready(function($) {
+
+        $('.live-search-list li').each(function() {
+            $(this).attr('data-search-term', $(this).text().toLowerCase());
+        });
+
+        $('.live-search-box').on('keyup', function() {
+
+            var searchTerm = $(this).val().toLowerCase();
+
+            $('.live-search-list li').each(function() {
+
+                if ($(this).filter('[data-search-term *= ' + searchTerm + ']').length > 0 || searchTerm.length < 1) {
+                    $(this).show();
+                } else {
+                    $(this).hide();
+                }
+
+            });
+
+        });
+
+    });
+</script>-->
+
+
+
+
+
+
+{% endblock %}

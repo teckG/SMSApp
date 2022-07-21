@@ -1,0 +1,111 @@
+{% extends "base.html" %} {% block title %}Event{% endblock %} {% block content %}
+
+<div class="card" style="padding-top:30px; padding-bottom:30px;">
+    <div class="card">
+        <div class="card-body  text-center text-light" style="background-color: #87CEFA">
+            <h4>FILL IN THE FORM BELOW TO SCHEDULE AN UPCOMING EVENT</h4>
+        </div>
+    </div>
+    <div class="card-body">
+        <div class="row ">
+
+            <div class="col">
+                <img src="..\static\images\jhs1.jpg" alt="" class="img-fluid mx-auto float-right">
+                <p class="text-justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi sit amet mi quam. In hac habitasse platea dictumst. Aliquam eget condimentum urna, eu maximus enim.</p>
+            </div>
+
+            <div class="col text-center">
+                <img src="..\static\images\vocational-training.jpg" alt="" class="img-fluid mx-auto float-right">
+                <p class="text-justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi sit amet mi quam. In hac habitasse platea dictumst. Aliquam eget condimentum urna, eu maximus enim.</p>
+            </div>
+            <div class="col text-right">
+                <img src="..\static\images\marching.jpg" alt="" class="img-fluid mx-auto float-right">
+                <p class="text-justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi sit amet mi quam. In hac habitasse platea dictumst. Aliquam eget condimentum urna, eu maximus enim.</p>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+
+
+
+<form method="POST">
+
+    <div class="container">
+        <p></p>
+        <div class="row">
+
+            <div class="col">
+                <label class="mr-sm-2" for="eventtitle">Event Title:</label>
+                <input type="text" id="eventtitle" name="eventtitle" class="form-control" placeholder="e.g Inter-school competition">
+            </div>
+
+            <div class="col">
+                <label class="mr-sm-2" for="eventdate">Select Date:</label>
+                <input type="date" id="eventdate" name="eventdate" class="form-control" />
+            </div>
+
+        </div>
+
+        <p></p>
+
+        <div class="row">
+
+            <div class="col">
+                <label class="mr-sm-2" for="description">Description:</label>
+                <textarea id="description" rows="6" name="description" class="form-control" style="resize:none"> </textarea>
+            </div>
+
+            <div class="col">
+                <label class="mr-sm-2" for="eventtime">Select Time:</label>
+                <input type="time" id="eventtime" name="eventtime" class="form-control" />
+                <p></p>
+                <label class="mr-sm-2" for="artwork">Select Artwork:</label>
+                <input type="file" id="artwork" name="artwork" class="form-control" accept="image/*" style="padding-bottom: 50px; padding-top: 20px;" />
+            </div>
+
+        </div>
+
+
+        <div class="row">
+
+            <div class="col">
+
+            </div>
+
+            <div class="col">
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="row" style="padding-top:20px">
+        <div class="col">
+            <button type="Submit" class="btn btn-block btn-outline-info">Save Event</button>
+        </div>
+
+        <div class="col">
+            <a class="nav-item nav-link" id="event" href="/event">
+                <button type="button" class="btn btn-primary btn-block btn-lg">View Events
+            </button></a>
+        </div>
+
+        <div class="col">
+            <button type="button" class="btn btn-block btn-outline-danger">Clear Fields</button>
+        </div>
+
+    </div>
+
+
+</form>
+
+
+
+
+
+{% endblock %}

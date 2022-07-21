@@ -1,0 +1,113 @@
+{% extends "base.html" %} {% block title %}Report Card{% endblock %} {% block script %}
+<script>
+    function display() {
+        window.print();
+    }
+</script>
+
+{% endblock %} {% block content %} {% for data in single %}
+<div class="jumbotron  text-center " id="">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">{{data.name}}</h4>
+            <h6 class="card-subtitle mb-2 text-muted">{{data.term}} Report</h6>
+
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Subject</th>
+                        <th>Class Score</th>
+                        <th>Exams Score</th>
+                        <th>Total Avg Score</th>
+                        <th>Grade</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <tr>
+                        <th>English</th>
+                        <td>{{data.engcl}}</td>
+                        <td>{{data.engex}}</td>
+                        <td>{{data.engtot}}</td>
+                        <td>{{data.enggr}}</td>
+                    </tr>
+                    <tr>
+                        <th>Mathematics</th>
+                        <td>{{data.mathcl}} </td>
+                        <td>{{data.mathex}}</td>
+                        <td>{{data.mathtot}}</td>
+                        <td>{{data.mathgr}}</td>
+                    </tr>
+
+                    <tr>
+                        <th>Science</th>
+                        <td>{{data.scicl}} </td>
+                        <td>{{data.sciex}}</td>
+                        <td>{{data.scitot}}</td>
+                        <td>{{data.scigr}}</td>
+                    </tr>
+
+                    <tr>
+                        <th>Social</th>
+                        <td>{{data.soccl}}</td>
+                        <td>{{data.socex}}</td>
+                        <td>{{data.soctot}}</td>
+                        <td>{{data.socgr}}</td>
+                    </tr>
+
+                    <tr>
+                        <th>RME</th>
+                        <td>{{data.rmecl}} </td>
+                        <td>{{data.rmeex}}</td>
+                        <td>{{data.rmetot}}</td>
+                        <td>{{data.rmegr}}</td>
+                    </tr>
+
+                    <tr>
+                        <th>BDT</th>
+                        <td>{{data.bdtcl}} </td>
+                        <td>{{data.bdtex}}</td>
+                        <td>{{data.bdttot}}</td>
+                        <td>{{data.bdtgr}}</td>
+                    </tr>
+
+                    <tr>
+                        <th>ICT</th>
+                        <td>{{data.ictcl}}</td>
+                        <td>{{data.ictex}}</td>
+                        <td>{{data.icttot}}</td>
+                        <td>{{data.ictgr}}</td>
+                    </tr>
+
+                    <tr>
+                        <th>Ghanaian Language</th>
+                        <td>{{data.ghlangcl}} </td>
+                        <td>{{data.ghlangex}}</td>
+                        <td>{{data.ghlangtot}}</td>
+                        <td>{{data.ghlanggr}}</td>
+                    </tr>
+
+                    <tr>
+                        <th>French</th>
+                        <td>{{data.frcl}}</td>
+                        <td>{{data.frex}}</td>
+                        <td>{{data.frtot}}</td>
+                        <td>{{data.frgr}} </td>
+                    </tr>
+
+
+                </tbody>
+            </table>
+
+
+
+
+            <button class="btn btn-outline-dark" onclick="display()">Click to Print Page</button>
+
+        </div>
+    </div>
+
+
+
+</div>
+{% endfor%} {% endblock %}

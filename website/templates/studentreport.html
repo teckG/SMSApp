@@ -1,0 +1,49 @@
+{% extends "base.html" %} {% block title %}Student Report{% endblock %} {% block content %}
+
+
+
+
+<table class="table table-responsive table-bordered">
+    <thead class="thead-dark">
+        <tr>
+            <th>ID</th>
+            <th>First</th>
+            <th>Last</th>
+            <th>Email</th>
+            <th>Father</th>
+            <th>Contact</th>
+            <th>Occupation</th>
+            <th>Mother</th>
+            <th>Contact</th>
+            <th>Occupation</th>
+            <th>DoB</th>
+            <th>Address</th>
+            <th>Class</th>
+            <th>Gender</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for data in dataset %}
+        <tr>
+            <th scope="row">{{data.id}}</th>
+            <td>{{data.first_name}}</td>
+            <td>{{data.last_name}}</td>
+            <td>{{data.email}}</td>
+            <td>{{data.dads_name}}</td>
+            <td>{{data.dads_contact}}</td>
+            <td>{{data.dads_occu}}</td>
+            <td>{{data.moms_name}}</td>
+            <td>{{data.moms_contact}}</td>
+            <td>{{data.moms_occu}}</td>
+            <td>{{data.dob}}</td>
+            <td>{{data.addr}}</td>
+            <td>{{data.forms}}</td>
+            <td>{{data.gender}}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+
+
+{% endblock %}

@@ -1,0 +1,101 @@
+{% extends "base.html" %} {% block title %}Fees{% endblock %} {% block script %}
+<script>
+    function bal() {
+
+        var x = parseInt(document.getElementById('total').innerHTML);
+        var y = parseInt(document.getElementById('amount').innerHTML);
+        var res = x - y;
+        document.getElementById("bal").innerHTML = res;
+
+    }
+
+
+    function display() {
+        window.print();
+    }
+</script>
+
+
+{% endblock %} {% block content %} {% for data in single %}
+<form method="POST">
+
+    <body onload="bal()">
+
+
+
+        <div class="jumbotron   ">
+            <div class="card">
+                <div class="card-body">
+                    <h2 class="card-title">{{data.name}}</h2>
+                    <h6 class="card-subtitle mb-2 text-muted">{{data.form}}</h6>
+
+                    <table class="table table-responsive">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Form</th>
+                                <th>Fees Charged</th>
+                                <th>Amount Paid</th>
+                                <th>Balance</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            <tr>{% for datas in dataset %}
+                                <td> <input name="studentID" value="{{datas.id}}" width="auto" style="border-style: none;" readonly/>
+                                </td>
+                                <td> <input name="studentName" value="{{data.name}}" width="auto" style="border-style: none;" readonly/>
+                                </td>
+                                <td><input name="studentForm" value="{{datas.forms}}" width="auto" style="border-style: none;" readonly/>
+                                </td>
+                                <td id="total">{{datas.tfees}}</td>
+                                {% endfor%}
+                                <td id="amount">{{data.amount}}</td>
+                                <td id="bal"></td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+
+
+
+
+                    <!-- <button class="btn btn-outline-dark" onclick="display()">Click to Print Page</button>
+           -->
+                </div>
+            </div>
+
+
+
+
+</form>
+
+
+<div class="card">
+    <ul class="list-group list-group-flush">
+        <span class="badge badge-light"><h3 class="text-left" style="padding: 20px">Fees Breakdown</span></h3>
+        </span>{% for data in allData %}
+        <li class="list-group-item">
+            <p class="font-weight-light text-capitalize font-weight-normal text-justify">On <span class="badge ">Date: {{data.date}}</span> {{data.name}} paid <span class="badge  ">Ghc {{data.amount}} </span> as school fees.</p>
+        </li>{% endfor%}
+    </ul>
+</div>
+<!--
+<button class="btn btn-outline-dark btn-block" onclick="display()">Click to Print Page</button>
+-->
+
+
+
+
+
+
+
+
+
+</div>
+
+<a class="nav-item nav-link" id="event" href="/billings">Go back</a>
+
+</body>
+{% endfor%} {% endblock %}

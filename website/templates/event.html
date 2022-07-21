@@ -1,0 +1,59 @@
+{% extends "base.html" %} {% block title %}Event Calendar{% endblock %} {% block content %}
+
+
+
+<!--
+<table class="table  table-responsive table-bordered">
+    <thead class="thead-dark">
+        <tr>
+            <th>ID</th>
+            <th>Title</th>
+            <th>Date</th>
+            <th>Time</th>
+            <th>Info</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for data in dataset %}
+        <tr>
+            <th scope="row">{{data.id}}</th>
+            <td>{{data.title}}</td>
+            <td>{{data.date}}</td>
+            <td>{{data.eventtime}}</td>
+            <td>{{data.description}}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table> -->
+
+
+
+
+<div class="container ">
+
+    <div class="row">
+        <div class="col">
+            {% for data in dataset %}
+            <div class="card" style="padding: 20px; margin-top: 10px;">
+                <!--  <img class="card-img-top" src="..\static\images\sp.jpg" width="50px" height="300px" alt="Card image cap">-->
+                <div class="card-body clearfix float-left">
+                    <h4 class="card-title">{{data.title}}</h4>
+                    <p class="card-text">
+                        <span class="badge badge-primary">Date</span> {{data.date}} | <span class="badge badge-primary">Time</span> {{data.eventtime}}
+                        <hr>
+                        <span class="badge badge-primary">Description</span> {{data.description}}
+                    </p>
+                    <a href="/eventlog" class="btn btn-outline-primary">Go Back To Event Page</a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+    </div>
+
+</div>
+
+
+
+
+{% endblock %}

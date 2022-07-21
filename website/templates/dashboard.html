@@ -1,0 +1,128 @@
+{% extends "base.html" %} {% block title %}Home{% endblock %} {% block content %}
+<div class="jumbotron jumbotron-fluid  ">
+
+    <hr>
+    <div class="container-fluid">
+        <h3 class="display-5 text-center">ATIMPOKU D/A JHS SCHOOL </h3>
+        <h3 class="display-5 text-center">MANAGEMENT SYSTEM DASHBOARD </h3>
+        <HR>
+
+    </div>
+
+    <div class="container align-items-center align-content-stretch">
+
+
+
+        <div class="d-flex text-white">
+            <div class="d-flex flex-column w-50 bg-light">
+                <a class="nav-item nav-link" id="home" href="/">
+                    <button type="button" class="btn btn-outline-info btn-block btn-lg">
+                    Home</button></a>
+            </div>
+            <div class="d-flex flex-column w-50 bg-light">
+                <a class="nav-item nav-link" id="students" href="/students">
+                    <button type="button" class="btn btn-outline-secondary btn-block btn-lg">
+                        Enroll Students</button></a>
+            </div>
+            <div class="d-flex flex-column w-50  bg-light">
+                <a class="nav-item nav-link" id="event" href="/assessment">
+                    <button type="button" class="btn btn-outline-success btn-block btn-lg">All Assessment Report
+                            </button></a>
+            </div>
+
+            <div class="d-flex flex-column w-50  bg-light">
+                <a class="nav-item nav-link" id="gallery" href="/gallery">
+                    <button type="button" class="btn btn-outline-primary btn-block btn-lg">Visit Gallery
+                                                                                        </button></a>
+            </div>
+
+        </div>
+
+        <div class="d-flex text-white">
+            <div class="d-flex flex-column w-50 bg-light">
+                <a class="nav-item nav-link" id="staff" href="/staff">
+                    <button type="button" class="btn btn-outline-dark btn-block btn-lg">
+                                        Add New Staff</button></a>
+            </div>
+            <div class="d-flex flex-column w-50 bg-light">
+                <a class="nav-item nav-link" id="score" href="/score">
+                    <button type="button" class="btn btn-outline-secondary btn-block btn-lg">
+                                                Assessment</button></a>
+            </div>
+            <div class="d-flex flex-column w-50 bg-light">
+                <a class="nav-item nav-link" id="studentreport" href="/studentreport">
+                    <button type="button" class="btn btn-outline-danger  btn-block btn-lg">Student Records</button>
+                </a>
+            </div>
+
+            <div class="d-flex flex-column w-50  bg-light">
+                <a class="nav-item nav-link" id="staffreport" href="/staffreport">
+                    <button type="button" class="btn btn-outline-info  btn-block btn-lg">Staff Records
+                                                                        </button></a>
+            </div>
+
+        </div>
+
+
+        <div class="d-flex text-white">
+
+            <div class="d-flex flex-column w-50 bg-light">
+                <a class="nav-item nav-link" id="event" href="/eventlog">
+                    <button type="button" class="btn btn-outline-primary  btn-block btn-lg">Add Event</button>
+                </a>
+            </div>
+
+
+            <div class="d-flex flex-column w-50  bg-light">
+                <a class="nav-item nav-link" id="event" href="/event">
+                    <button type="button" class="btn btn-outline-success btn-block btn-lg">View Events
+                                    </button></a>
+            </div>
+
+
+
+            <div class="d-flex flex-column w-50 bg-light">
+                <a class="nav-item nav-link" id="event" href="/individuals">
+                    <button type="button" class="btn btn-outline-primary btn-block btn-lg">Assessment Report
+                                                                                </button></a>
+            </div>
+
+            <div class="d-flex flex-column w-50  bg-light">
+                <a class="nav-item nav-link" id="event" href="/assessment">
+                    <button type="button" class="btn btn-outline-primary btn-block btn-lg">All Assessment                                                                                        </button></a>
+            </div>
+
+
+        </div>
+
+
+        <div class="d-flex text-white">
+
+
+
+
+
+
+            <div class="d-flex flex-column w-50  bg-light">
+                <a class="nav-item nav-link" id="event" href="/billings">
+                    <button type="button" class="btn btn-outline-primary btn-block btn-lg">Billings                                                                                       </button></a>
+            </div>
+
+
+            <div class="d-flex flex-column w-50  bg-light">
+                <a class="nav-item nav-link" id="logout" href="/logout">
+                    <button type="button" class="btn btn-outline-danger btn-block btn-lg">Logout {{user.first_name}} 
+                                                                                </button></a>
+            </div>
+
+        </div>
+
+
+
+
+
+        <hr>
+
+    </div>
+
+    {% endblock %}
